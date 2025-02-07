@@ -1,0 +1,4 @@
+import DesPy
+
+DesPy.Latex()
+
