@@ -1,4 +1,12 @@
+"""This script adds a new crossword to the website"""
 
+from datetime import datetime
+
+
+i_frame = input("Please Enter the Iframe obtained from crosshare> ")
+num = input("please enter the crossword number > ")
+setter = input("please enter the setter > ")
+standard_html = """
 <html>
     <head>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
@@ -37,7 +45,13 @@
                 </div>
             </div>
         </nav>
+        
+        {{CROSSWORD}}
+    </body>
+</html>
+"""
 
+card = f"""
         <div class="container mt-4">
             <div class="card mb-3" style="max-width: 540px;">
                 <div class="row g-0">
@@ -46,19 +60,40 @@
                     </div>
                     <div class="col-md-9">
                         <div class="card-body">
-                            <h5 class="card-title">Pelican 1</h5>
-                            <p class="card-text">Pollygon - 04/10/2025</p>
-                            <a href="archive/1.html" class="btn custom-btn">Play</a>
+                            <h5 class="card-title">Pelican {num}</h5>
+                            <p class="card-text">{setter} - {datetime.today().strftime("%d/%m/%Y")}</p>
+                            <a href="archive/{num}.html" class="btn custom-btn">Play</a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+"""
 
-        
+# Write the individual crossword page
+with open(rf"C:\Users\Michael\thepelicancrossing\archive\{num}.html", "w") as f:
+    f.write(standard_html.replace("{{CROSSWORD}}", i_frame))
 
+# Update the index.html by inserting the new card
+index_path = r"C:\Users\Michael\thepelicancrossing\index.html"
 
-    </body>
-</html>
+# Read the existing index.html
+with open(index_path, "r") as f:
+    content = f.read()
 
+# Find the position right after </nav> and insert the card there
+nav_end = "</nav>"
+nav_pos = content.find(nav_end)
 
+if nav_pos != -1:
+    # Insert the card right after the closing </nav> tag
+    insert_pos = nav_pos + len(nav_end)
+    new_content = content[:insert_pos] + "\n" + card + content[insert_pos:]
+
+    # Write the updated content back
+    with open(index_path, "w") as f:
+        f.write(new_content)
+
+    print(f"Successfully added Pelican {num} to the website!")
+else:
+    print("Error: Could not find </nav> tag in index.html")
