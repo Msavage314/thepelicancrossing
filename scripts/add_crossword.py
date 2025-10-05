@@ -154,10 +154,10 @@ card = f"""
         <div class="container mt-4">
             <div class="card mb-3" style="max-width: 540px;">
                 <div class="row g-0">
-                    <div class="col-md-3">
+                    <div class="col-4 col-md-3">
                         <img src="crossword.jpg" class="img-fluid rounded-start" alt="Crossword" style="object-fit: cover; height: 100%;">
                     </div>
-                    <div class="col-md-9">
+                    <div class="col-8 col-md-9">
                         <div class="card-body">
                             <h5 class="card-title">Pelican {num}</h5>
                             <p class="card-text">{setter} - {datetime.today().strftime("%d/%m/%Y")}</p>
