@@ -2,7 +2,6 @@
 
 from datetime import datetime
 
-
 i_frame = input("Please Enter the Iframe obtained from crosshare> ")
 num = input("please enter the crossword number > ")
 setter = input("please enter the setter > ")
@@ -155,8 +154,9 @@ card = f"""
             <div class="card mb-3" style="max-width: 540px;">
                 <div class="row g-0">
                     <div class="col-4 col-md-3">
-                        <img src="crossword.jpg" class="img-fluid rounded-start" alt="Crossword" style="object-fit: cover; height: 100%;">
-                    </div>
+                        <div class="col-4 col-md-3">
+                            <img src="crossword.jpg" class="img-fluid rounded-start" alt="Crossword" style="object-fit: cover; height: 100%;">
+                        </div>
                     <div class="col-8 col-md-9">
                         <div class="card-body">
                             <h5 class="card-title">Pelican {num}</h5>
