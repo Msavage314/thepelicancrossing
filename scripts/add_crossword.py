@@ -155,7 +155,7 @@ card = f"""
                 <div class="row g-0">
                     <div class="col-4 col-md-3">
                         <div class="col-4 col-md-3">
-                            <img src="crossword.jpg" class="img-fluid rounded-start" alt="Crossword" style="object-fit: cover; height: 100%;">
+                            <img src="crossword.jpg" class="img-fluid rounded-start" alt="Crossword" style="object-fit: cover;">
                         </div>
                     <div class="col-8 col-md-9">
                         <div class="card-body">
